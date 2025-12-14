@@ -1,0 +1,231 @@
+/* ------------ split layout ------------ */
+
+.rb-home-split {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr; /* left image, wider right content */
+  min-height: auto;
+}
+
+/* left side = full image */
+
+.rb-home-left {
+  position: relative;
+  background-image: linear-gradient(
+      rgba(15, 23, 42, 0.45),
+      rgba(15, 23, 42, 0.65)
+    ),
+    url("https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 1270px;
+  border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
+  overflow: hidden;
+}
+
+.rb-home-left-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.rb-home-left-text {
+  position: absolute;
+  inset: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #f9fafb;
+}
+
+.rb-home-left-text h2 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.rb-home-left-text p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* -------- right side = all details -------- */
+
+.rb-home-right {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+.rb-home-right-inner {
+  width: 100%;
+  max-width: 1500px; /* wider text area */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* header text – bigger and wider */
+
+.rb-home-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.9rem;
+  color: #111111;
+  font-weight: 800;
+}
+
+.rb-home-header p {
+  max-width: 100%;
+  line-height: 1.9;
+  font-size: 1.5rem;
+  color: #1f2933;
+}
+
+/* what section */
+
+.rb-what h2 {
+  margin-bottom: 0.7rem;
+  font-size: 2rem;
+  color: #111111;
+}
+
+.rb-what p {
+  font-size: 1.5rem;
+  color: #1f2933;
+}
+
+/* role cards + buttons (contractor / supplier) */
+
+.rb-roles {
+  margin-top: 0.6rem;
+}
+
+.rb-role-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+.rb-role-cards .rb-card {
+  width: 80%;
+}
+
+.contractor-card {
+  border-top: 4px solid #1e90ff;
+}
+
+.supplier-card {
+  border-top: 4px solid #ff6b35;
+}
+
+.rb-role-cards .rb-card h3 {
+  font-size: 1.75rem;
+}
+
+.rb-role-cards .rb-card p {
+  font-size: 1.4rem;
+}
+
+/* make home-page buttons wide and large */
+
+.rb-role-cards .rb-btn-primary {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 2.2rem;
+  font-size: 1.25rem;
+}
+
+/* country selector */
+
+.rb-country-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.04);
+  font-size: 1.3rem;
+}
+
+.rb-country-inline select {
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 1rem;
+  font-size: 1.35rem;
+}
+
+/* country popup */
+
+.rb-country-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+}
+
+.rb-country-popup-inner {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.8rem;
+  width: 90%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.05rem;
+}
+
+.rb-country-popup-inner select {
+  padding: 0.65rem 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  font-size: 1.02rem;
+}
+
+/* ------------ responsive ------------ */
+
+@media (max-width: 900px) {
+  .rb-home-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .rb-home-left {
+    height: 230px;
+    border-radius: 0 0 1.4rem 1.4rem;
+  }
+
+  .rb-home-right {
+    padding: 1.4rem 1.6rem 1.8rem;
+  }
+
+  .rb-home-right-inner {
+    max-width: 100%;
+  }
+
+  .rb-home-header h1 {
+    font-size: 2.7rem;
+  }
+
+  .rb-home-header p {
+    font-size: 1.12rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .rb-home-left-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .rb-home-left-text p {
+    font-size: 1rem;
+  }
+
+  .rb-home-header h1 {
+    font-size: 2.2rem;
+  }
+}
